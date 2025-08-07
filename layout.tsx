@@ -4,6 +4,9 @@ import { GeistMono } from 'geist/font/mono'
 import './globals.css'
 
 export const metadata: Metadata = {
+  title: 'Coding Playground',
+  description: 'An interactive coding playground built with Next.js',
+}
 
 export default function RootLayout({
   children,
@@ -11,17 +14,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-}
-        `}</style>
-      </head>
-      <body>{children}</body>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body style={{ fontFamily: GeistSans.style.fontFamily }}>
+        {children}
+      </body>
     </html>
   )
 }
